@@ -11,11 +11,10 @@ npm install react-native-multiple-select-hac
 ## Usage
 
 ```js
-import { multiply } from "react-native-multiple-select-hac";
+import MultipleSelect from "react-native-multiple-select-hac";
 
 // ...
 
-const result = await multiply(3, 7);
 ```
 
 ## Contributing
