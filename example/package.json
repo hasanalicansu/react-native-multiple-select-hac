@@ -2,7 +2,7 @@
   "name": "react-native-multiple-select-hac-example",
   "description": "Example app for react-native-multiple-select-hac",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "main": "index",
   "scripts": {
     "android": "expo start --android",
