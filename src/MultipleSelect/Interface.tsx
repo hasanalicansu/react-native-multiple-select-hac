@@ -39,7 +39,7 @@ export interface IMultipleSelect {
 }
 
 export interface IHorizontal {
-  value?: (number | string)[];
+  value?: any[];
   placeholder: string;
   placeholderStyle?: StyleProp<TextStyle>;
   contentStyle?: StyleProp<ViewStyle>;
@@ -54,7 +54,7 @@ export interface IHorizontal {
 }
 
 export interface IVertical {
-  value?: (number | string)[];
+  value?: any[];
   placeholder: string;
   placeholderStyle?: StyleProp<TextStyle>;
   contentStyle?: StyleProp<ViewStyle>;
@@ -112,7 +112,7 @@ export interface IRenderFullscreenModal {
 
 export interface IListItem {
   pressItem(data: { [key: string]: any }): void;
-  value?: number[] | string[];
+  value?: any[];
   data: { [key: string]: any };
   displayedObject: string;
   uniqueKey: string;
