@@ -36,8 +36,10 @@ export const MultipleSelect = ({
   confirmButtonText = 'Confirm',
   confirmButtonTextStyle,
   confirmButtonStyle,
+  parent,
+  categorySelectable = false,
 }: IMultipleSelect) => {
-  const [filterData, setFilterData] = useState<{ [key: string]: any }[]>([]);
+  const [_items, _setItems] = useState<{ [key: string]: any }[]>([]);
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
   const [handleValue, setHandleValue] = useState<any[]>([]);
@@ -68,9 +70,10 @@ export const MultipleSelect = ({
 
   // Search'e göre filtreleme
   useEffect(() => {
+    let filter;
     if (search.trim() === '') {
       // search boş ise filterData'nın ataması yapılır
-      setFilterData(items !== undefined ? items : []);
+      filter = items !== undefined ? items : [];
     } else {
       // search'e götre filtreleme yapılarak filterData'nın ataması yapılır
       const newData = items?.filter((item: { [key: string]: string }) =>
@@ -79,8 +82,15 @@ export const MultipleSelect = ({
           .toLowerCase()
           .includes(search.toLowerCase())
       );
-      setFilterData(newData !== undefined ? newData : []);
+      filter = newData !== undefined ? newData : [];
     }
+
+    if (parent !== undefined && items !== undefined) {
+      _setItems(sortedParentItems(filter, parent, uniqueKey, items));
+    } else {
+      _setItems(filter);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, items, displayedObject]);
 
   return (
@@ -131,7 +141,7 @@ export const MultipleSelect = ({
         search={search}
         setSearch={setSearch}
         uniqueKey={uniqueKey}
-        filterData={filterData}
+        filterData={_items}
         displayedObject={displayedObject}
         modalContainer={modalContainer}
         headerIcon={headerIcon}
@@ -139,6 +149,8 @@ export const MultipleSelect = ({
         leftStyle={leftStyle}
         clearText={clearText}
         clearStyle={clearStyle}
+        parent={parent}
+        categorySelectable={categorySelectable}
         modalContentStyle={modalContentStyle}
         confirmButtonText={confirmButtonText}
         confirmButtonTextStyle={confirmButtonTextStyle}
@@ -147,4 +159,28 @@ export const MultipleSelect = ({
       />
     </View>
   );
+};
+
+const sortedParentItems = (
+  itemsSort: { [key: string]: any }[],
+  parent: string,
+  uniqueKey: string,
+  items: { [key: string]: any }[]
+) => {
+  const sortedItems = items.filter((item) => item[parent] === undefined);
+
+  const children = itemsSort.filter((item) => item[parent] !== undefined);
+
+  children.forEach((child) => {
+    const index = sortedItems.findIndex(
+      (item) =>
+        item[parent] === child[parent] || item[uniqueKey] === child[parent]
+    );
+
+    if (index > -1) {
+      sortedItems.splice(index + 1, 0, child);
+    }
+  });
+
+  return sortedItems;
 };

@@ -14,9 +14,11 @@ export interface IMultipleSelect {
   max?: number;
   searchable?: boolean;
   vertical?: boolean;
+  categorySelectable?: boolean;
   displayedObject?: string;
   verticalMaxHeight?: number;
   topTextfontFamily?: string;
+  parent?: string;
   uniqueKey?: string;
   onSelectedItemsChange?: (items: { [key: string]: any }) => void;
   badgeTextStyle?: StyleProp<TextStyle>;
@@ -82,6 +84,8 @@ export interface IBadgeItem {
 
 export interface IRenderFullscreenModal {
   topText?: string;
+  parent?: string;
+  categorySelectable: boolean;
   value?: any[];
   setValue?:
     | React.Dispatch<React.SetStateAction<number[]>>
@@ -116,4 +120,7 @@ export interface IListItem {
   data: { [key: string]: any };
   displayedObject: string;
   uniqueKey: string;
+  parent?: string;
+  isItParent: boolean;
+  categorySelectable: boolean;
 }

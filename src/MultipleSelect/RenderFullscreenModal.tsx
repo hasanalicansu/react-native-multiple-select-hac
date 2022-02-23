@@ -28,6 +28,8 @@ export const RenderFullscreenModal = ({
   searchable,
   leftStyle,
   topText,
+  parent,
+  categorySelectable,
   max,
   modalContainer,
   headerIcon,
@@ -130,6 +132,9 @@ export const RenderFullscreenModal = ({
                   uniqueKey={uniqueKey}
                   displayedObject={displayedObject}
                   data={item}
+                  parent={parent}
+                  categorySelectable={categorySelectable}
+                  isItParent={item.parent ? false : true}
                   value={handleValue}
                   pressItem={(badge) => handlePressItem(badge)}
                 />

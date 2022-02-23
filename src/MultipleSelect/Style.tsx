@@ -144,5 +144,7 @@ export const ListItemStyle = StyleSheet.create({
     alignItems: 'center',
   },
   text: { color: '#181C32', fontSize: 14, fontWeight: '500' },
+  parentText: { color: '#181C32', fontSize: 19, fontWeight: '700' },
   checkImage: { width: 15, height: 15 },
+  marginParent: { marginTop: 7 },
 });

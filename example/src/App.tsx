@@ -5,26 +5,28 @@ import { StyleSheet, View } from 'react-native';
 import MultipleSelect from 'react-native-multiple-select-hac';
 
 export default function App() {
-  const [value, setValue] = React.useState([1, 2]);
-  const items = [
-    { label: 'Hasan Ali', value: 1 },
-    { label: 'Ahmet Kağan', value: 2 },
-    { label: 'Hakan Cansu', value: 3 },
-    { label: 'Harun Cansu', value: 4 },
-    { label: 'Teras Cat', value: 5 },
-    { label: 'Rabia Bezen', value: 6 },
-    { label: 'Tra Bilişim', value: 7 },
-    { label: 'İsmail Hakkı', value: 8 },
-  ];
+  const [value, setValue] = React.useState(['ja', 'chi']);
+  const [items, setItems] = React.useState([
+    { label: 'Asia', value: 'as' },
+    { label: 'China', value: 'chi', parent: 'as' },
+    { label: 'Japan', value: 'ja', parent: 'as' },
+
+    { label: 'Africa', value: 'af' },
+    { label: 'Ghana', value: 'ghana', parent: 'gh' },
+    { label: 'Senegal', value: 'senegal', parent: 'se' },
+  ]);
+
   return (
     <View style={styles.container}>
       <MultipleSelect
         topText={'Multiple Select'}
         vertical
         searchable
+        categorySelectable
         value={value}
         setValue={setValue}
         items={items}
+        parent="parent"
       />
       <MultipleSelect
         containerStyle={{ marginTop: 30 }}

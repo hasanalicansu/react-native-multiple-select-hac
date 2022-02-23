@@ -9,12 +9,32 @@ export const ListItem = ({
   pressItem,
   displayedObject,
   uniqueKey,
+  parent,
+  isItParent,
+  categorySelectable,
 }: IListItem) => (
   <TouchableOpacity
-    style={ListItemStyle.container}
-    onPress={() => pressItem(data)}
+    style={[
+      ListItemStyle.container,
+      isItParent && parent !== undefined && ListItemStyle.marginParent,
+    ]}
+    onPress={() =>
+      isItParent && parent !== undefined
+        ? categorySelectable
+          ? pressItem(data)
+          : null
+        : pressItem(data)
+    }
   >
-    <Text style={ListItemStyle.text}>{data[displayedObject]}</Text>
+    <Text
+      style={
+        isItParent && parent !== undefined
+          ? [ListItemStyle.parentText]
+          : ListItemStyle.text
+      }
+    >
+      {data[displayedObject]}
+    </Text>
     {value?.includes(data[uniqueKey]) && (
       <Image
         style={ListItemStyle.checkImage}
