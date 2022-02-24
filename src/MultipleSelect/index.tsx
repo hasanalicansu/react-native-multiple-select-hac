@@ -13,7 +13,7 @@ export const MultipleSelect = ({
   topText,
   topTextStyle,
   searchable = false,
-  placeholder = 'Secim yapınız',
+  placeholder = 'Select items',
   value,
   items,
   setValue,

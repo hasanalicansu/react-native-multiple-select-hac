@@ -11,6 +11,7 @@ export const BadgeItem = ({
   badgeStyle,
   badgeIcon,
   crossStyle,
+  badgeTextStyle,
 }: IBadgeItem) => {
   const badge: { [key: string]: string | number } = findItem(itemKey);
 
@@ -19,7 +20,7 @@ export const BadgeItem = ({
       style={[BadgeStyle.container, badgeStyle]}
       onPress={() => pressItem(badge)}
     >
-      <Text adjustsFontSizeToFit style={BadgeStyle.text}>
+      <Text adjustsFontSizeToFit style={[BadgeStyle.text, badgeTextStyle]}>
         {badge[displayedObject]}
       </Text>
       {badgeIcon ? (

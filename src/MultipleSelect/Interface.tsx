@@ -8,9 +8,7 @@ export interface IMultipleSelect {
   containerStyle?: StyleProp<ViewStyle>;
   touchableContainerStyle?: StyleProp<ViewStyle>;
   items?: { [key: string]: any }[];
-  setValue?:
-    | React.Dispatch<React.SetStateAction<number[]>>
-    | React.Dispatch<React.SetStateAction<string[]>>;
+  setValue?: React.Dispatch<React.SetStateAction<any[]>>;
   max?: number;
   searchable?: boolean;
   vertical?: boolean;
@@ -26,11 +24,11 @@ export interface IMultipleSelect {
   badgeIconColor?: string;
   placeholderStyle?: StyleProp<TextStyle>;
   contentStyle?: StyleProp<ViewStyle>;
-  badgeIcon?: any;
+  badgeIcon?: React.ReactNode;
   crossStyle?: StyleProp<ImageStyle>;
   modalContainer?: StyleProp<ViewStyle>;
   leftStyle?: StyleProp<ImageStyle>;
-  headerIcon?: any;
+  headerIcon?: React.ReactNode;
   headerStyle?: StyleProp<ViewStyle>;
   clearText?: string;
   clearStyle?: StyleProp<TextStyle>;
@@ -51,7 +49,7 @@ export interface IHorizontal {
   findItem: (itemKey: number | string) => {};
   pressItem(data: { [key: string]: any }): void;
   badgeTextStyle?: StyleProp<TextStyle>;
-  badgeIcon?: any;
+  badgeIcon?: React.ReactNode;
   crossStyle?: StyleProp<ImageStyle>;
 }
 
@@ -66,7 +64,7 @@ export interface IVertical {
   findItem: (itemKey: number | string) => {};
   pressItem(data: { [key: string]: any }): void;
   badgeTextStyle?: StyleProp<TextStyle>;
-  badgeIcon?: any;
+  badgeIcon?: React.ReactNode;
   crossStyle?: StyleProp<ImageStyle>;
   verticalMaxHeight?: number;
 }
@@ -78,7 +76,7 @@ export interface IBadgeItem {
   itemKey: string | number;
   findItem: (itemKey: number | string) => {};
   badgeTextStyle?: StyleProp<TextStyle>;
-  badgeIcon?: any;
+  badgeIcon?: React.ReactNode;
   crossStyle?: StyleProp<ImageStyle>;
 }
 
@@ -87,9 +85,7 @@ export interface IRenderFullscreenModal {
   parent?: string;
   categorySelectable: boolean;
   value?: any[];
-  setValue?:
-    | React.Dispatch<React.SetStateAction<number[]>>
-    | React.Dispatch<React.SetStateAction<string[]>>;
+  setValue?: React.Dispatch<React.SetStateAction<any[]>>;
   max?: number;
   searchable?: boolean;
   displayedObject: string;
@@ -103,7 +99,7 @@ export interface IRenderFullscreenModal {
   search: string;
   modalContainer?: StyleProp<ViewStyle>;
   leftStyle?: StyleProp<ImageStyle>;
-  headerIcon?: any;
+  headerIcon?: React.ReactNode;
   headerStyle?: StyleProp<ViewStyle>;
   clearText?: string;
   clearStyle?: StyleProp<TextStyle>;
