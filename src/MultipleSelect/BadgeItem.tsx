@@ -12,22 +12,34 @@ export const BadgeItem = ({
   badgeIcon,
   crossStyle,
   badgeTextStyle,
+  colorScheme,
 }: IBadgeItem) => {
   const badge: { [key: string]: string | number } = findItem(itemKey);
 
   return (
     <TouchableOpacity
-      style={[BadgeStyle.container, badgeStyle]}
+      style={[
+        BadgeStyle.container,
+        { backgroundColor: colorScheme.badge },
+        badgeStyle,
+      ]}
       onPress={() => pressItem(badge)}
     >
-      <Text adjustsFontSizeToFit style={[BadgeStyle.text, badgeTextStyle]}>
+      <Text
+        adjustsFontSizeToFit
+        style={[BadgeStyle.text, { color: colorScheme.text }, badgeTextStyle]}
+      >
         {badge[displayedObject]}
       </Text>
       {badgeIcon ? (
         badgeIcon
       ) : (
         <Image
-          style={[BadgeStyle.cross, crossStyle]}
+          style={[
+            BadgeStyle.cross,
+            { tintColor: colorScheme.primary },
+            crossStyle,
+          ]}
           source={require('../assets/cross.png')}
         />
       )}

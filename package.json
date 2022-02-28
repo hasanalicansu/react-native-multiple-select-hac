@@ -1,6 +1,6 @@
 {
   "name": "react-native-multiple-select-hac",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "react native multiple select",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -34,7 +34,12 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "multi select",
+    "multi-select",
+    "react-native multi select typescript",
+    "multiple-select",
+    "react-native component"
   ],
   "repository": "https://github.com/hasanalicansu/react-native-multiple-select-hac",
   "author": "Hasan Ali CANSU <hasanalicansu@gmail.com> (https://github.com/hasanalicansu)",

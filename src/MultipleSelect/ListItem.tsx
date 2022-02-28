@@ -12,6 +12,7 @@ export const ListItem = ({
   parent,
   isItParent,
   categorySelectable,
+  colorScheme,
 }: IListItem) => (
   <TouchableOpacity
     style={[
@@ -29,15 +30,15 @@ export const ListItem = ({
     <Text
       style={
         isItParent && parent !== undefined
-          ? [ListItemStyle.parentText]
-          : ListItemStyle.text
+          ? [ListItemStyle.parentText, { color: colorScheme.text }]
+          : [ListItemStyle.text, { color: colorScheme.text }]
       }
     >
       {data[displayedObject]}
     </Text>
     {value?.includes(data[uniqueKey]) && (
       <Image
-        style={ListItemStyle.checkImage}
+        style={[ListItemStyle.checkImage, {tintColor: colorScheme.text}]}
         source={require('../assets/check.png')}
       />
     )}

@@ -1,8 +1,9 @@
 # react-native-multiple-select-hac
 
-Content type (Vertical and horizontal         |  Modal
-:-------------------------:|:-------------------------:
-![content](https://user-images.githubusercontent.com/63130177/155514436-38640d7e-0f31-4306-bd24-bbaf80161d0d.png)   |  ![modal](https://user-images.githubusercontent.com/63130177/155514447-33ba24d9-0b0b-403a-9795-8a99e73d29e6.png)
+Content type (Vertical and horizontal)         |  Modal Light |  Modal Dark
+:-------------------------:|:-------------------------:|:-------------------------:
+![content !](https://user-images.githubusercontent.com/63130177/155967651-f9f24a60-0dd6-49b0-8b77-935b9f896c60.png)|![modal Light](https://user-images.githubusercontent.com/63130177/155967204-584ebdad-ade7-4bf4-bec5-26891a28a8b7.png)| ![modal dark](https://user-images.githubusercontent.com/63130177/155966892-fe117d11-aaf4-46b2-bdb1-816b5dad42e1.png)
+
 
 # react-native-multiple-select-hac
 
@@ -47,6 +48,7 @@ The component takes 3 compulsory props - `items`, `uniqueKey`, `value` and `setV
 | displayedObject | No | (String) Defaults to "label". This string will be used to select the key to display the objects in the items array |
 | topText | No | (String) Top Text for multiple select |
 | topTextStyle | No | (StyleProp<TextStyle>) Style for top text |
+| theme | No | (light / dark) Theme for component |
 | searchable | No | (boolean) Defaults to "false". Enables the search feature in the drop-down menu / modal. |
 | placeholder | No | (String) Defaults to 'Select items'. Placeholder text displayed in multi-select filter input |
 | onSelectedItemsChange | No | (void function) Callback that returns the selected item / items. |

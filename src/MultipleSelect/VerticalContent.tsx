@@ -18,15 +18,30 @@ export const VerticalContent = ({
   crossStyle,
   badgeIcon,
   verticalMaxHeight,
+  colorScheme,
 }: IVertical) => {
   return (
-    <View style={[VerticalStyle.container, contentStyle]}>
+    <View
+      style={[
+        VerticalStyle.container,
+        { backgroundColor: colorScheme.bg, borderColor: colorScheme.border },
+        contentStyle,
+      ]}
+    >
       <TouchableOpacity onPress={() => setOpen(!open)}>
-        <Text style={[VerticalStyle.placeholder, placeholderStyle]}>
+        <Text
+          style={[
+            VerticalStyle.placeholder,
+            { color: colorScheme.text2 },
+            placeholderStyle,
+          ]}
+        >
           {placeholder}
         </Text>
       </TouchableOpacity>
-      <View style={VerticalStyle.line} />
+      <View
+        style={[VerticalStyle.line, { backgroundColor: colorScheme.border }]}
+      />
       <ScrollView style={{ maxHeight: verticalMaxHeight }}>
         <View style={VerticalStyle.scrollContent}>
           {value?.map((itemKey, index) => (
@@ -40,6 +55,7 @@ export const VerticalContent = ({
               badgeTextStyle={badgeTextStyle}
               crossStyle={crossStyle}
               badgeIcon={badgeIcon}
+              colorScheme={colorScheme}
             />
           ))}
         </View>

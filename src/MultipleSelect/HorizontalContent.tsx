@@ -17,11 +17,16 @@ export const HorizontalContent = ({
   badgeTextStyle,
   crossStyle,
   badgeIcon,
+  colorScheme,
 }: IHorizontal) => {
   return (
     <TouchableOpacity
       onPress={() => setOpen(!open)}
-      style={[HorizontalStyle.container, contentStyle]}
+      style={[
+        HorizontalStyle.container,
+        { backgroundColor: colorScheme.bg, borderColor: colorScheme.border },
+        contentStyle,
+      ]}
     >
       {value !== undefined && value.length > 0 ? (
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -36,11 +41,18 @@ export const HorizontalContent = ({
               badgeTextStyle={badgeTextStyle}
               crossStyle={crossStyle}
               badgeIcon={badgeIcon}
+              colorScheme={colorScheme}
             />
           ))}
         </ScrollView>
       ) : (
-        <Text style={[HorizontalStyle.placeholder, placeholderStyle]}>
+        <Text
+          style={[
+            HorizontalStyle.placeholder,
+            { color: colorScheme.text2 },
+            placeholderStyle,
+          ]}
+        >
           {placeholder}
         </Text>
       )}

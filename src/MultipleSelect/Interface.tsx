@@ -1,6 +1,23 @@
 import type React from 'react';
 import type { ViewStyle, StyleProp, TextStyle, ImageStyle } from 'react-native';
 
+export interface IColorScheme {
+  border: string;
+  badge: string;
+
+  bg: string;
+  bg2: string;
+  bg3: string;
+
+  input: string;
+
+  primary: string;
+  tertiary: string;
+
+  text: string;
+  text2: string;
+}
+
 export interface IMultipleSelect {
   topText?: string;
   value?: any[];
@@ -36,6 +53,7 @@ export interface IMultipleSelect {
   confirmButtonText?: string;
   confirmButtonTextStyle?: StyleProp<TextStyle>;
   confirmButtonStyle?: StyleProp<ViewStyle>;
+  theme?: 'dark' | 'light';
 }
 
 export interface IHorizontal {
@@ -50,6 +68,7 @@ export interface IHorizontal {
   pressItem(data: { [key: string]: any }): void;
   badgeTextStyle?: StyleProp<TextStyle>;
   badgeIcon?: React.ReactNode;
+  colorScheme: IColorScheme;
   crossStyle?: StyleProp<ImageStyle>;
 }
 
@@ -66,6 +85,7 @@ export interface IVertical {
   badgeTextStyle?: StyleProp<TextStyle>;
   badgeIcon?: React.ReactNode;
   crossStyle?: StyleProp<ImageStyle>;
+  colorScheme: IColorScheme;
   verticalMaxHeight?: number;
 }
 
@@ -77,6 +97,7 @@ export interface IBadgeItem {
   findItem: (itemKey: number | string) => {};
   badgeTextStyle?: StyleProp<TextStyle>;
   badgeIcon?: React.ReactNode;
+  colorScheme: IColorScheme;
   crossStyle?: StyleProp<ImageStyle>;
 }
 
@@ -107,6 +128,7 @@ export interface IRenderFullscreenModal {
   confirmButtonText?: string;
   confirmButtonTextStyle?: StyleProp<TextStyle>;
   confirmButtonStyle?: StyleProp<ViewStyle>;
+  colorScheme: IColorScheme;
   onSelectedItemsChange?: (items: { [key: string]: any }) => void;
 }
 
@@ -118,5 +140,6 @@ export interface IListItem {
   uniqueKey: string;
   parent?: string;
   isItParent: boolean;
+  colorScheme: IColorScheme;
   categorySelectable: boolean;
 }

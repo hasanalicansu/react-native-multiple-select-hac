@@ -27,7 +27,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <MultipleSelect
-        topText={'Multiple Select'}
+        topText={'Multiple Select Vertical'}
         vertical
         searchable
         categorySelectable
@@ -37,14 +37,39 @@ export default function App() {
         parent="parent"
         max={6}
       />
+
       <MultipleSelect
         containerStyle={{ marginTop: 30 }}
-        topText={'Multiple Select'}
+        topText={'Multiple Select Vertical Dark'}
+        vertical
+        searchable
+        categorySelectable
+        value={value}
+        setValue={setValue}
+        items={items}
+        parent="parent"
+        theme="dark"
+      />
+
+      <MultipleSelect
+        containerStyle={{ marginTop: 30 }}
+        topText={'Multiple Select Horizontal'}
         searchable
         value={value}
         setValue={setValue}
         items={items}
         onSelectedItemsChange={(items) => console.log(items)}
+      />
+
+      <MultipleSelect
+        containerStyle={{ marginTop: 30 }}
+        topText={'Multiple Select Horizontal Dark'}
+        searchable
+        value={value}
+        setValue={setValue}
+        items={items}
+        onSelectedItemsChange={(items) => console.log(items)}
+        theme="dark"
       />
     </View>
   );
@@ -52,7 +77,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    paddingTop: 100,
+    flex: 1,
   },
   box: {
     width: 60,

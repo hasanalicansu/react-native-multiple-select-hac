@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
+import Theme from '../constants/Theme';
 import { HorizontalContent } from './HorizontalContent';
 import type { IMultipleSelect } from './Interface';
 import { RenderFullscreenModal } from './RenderFullscreenModal';
@@ -38,11 +39,13 @@ export const MultipleSelect = ({
   confirmButtonStyle,
   parent,
   categorySelectable = false,
+  theme = 'light',
 }: IMultipleSelect) => {
   const [_items, _setItems] = useState<{ [key: string]: any }[]>([]);
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
   const [handleValue, setHandleValue] = useState<any[]>([]);
+  const colorScheme = Theme[theme];
 
   useEffect(() => {
     if (value !== undefined && value !== handleValue && open) {
@@ -111,6 +114,7 @@ export const MultipleSelect = ({
           badgeIcon={badgeIcon}
           crossStyle={crossStyle}
           verticalMaxHeight={verticalMaxHeight}
+          colorScheme={colorScheme}
         />
       ) : (
         <HorizontalContent
@@ -125,6 +129,7 @@ export const MultipleSelect = ({
           contentStyle={contentStyle}
           badgeTextStyle={badgeTextStyle}
           badgeIcon={badgeIcon}
+          colorScheme={colorScheme}
           crossStyle={crossStyle}
         />
       )}
@@ -156,6 +161,7 @@ export const MultipleSelect = ({
         confirmButtonTextStyle={confirmButtonTextStyle}
         confirmButtonStyle={confirmButtonStyle}
         onSelectedItemsChange={onSelectedItemsChange}
+        colorScheme={colorScheme}
       />
     </View>
   );

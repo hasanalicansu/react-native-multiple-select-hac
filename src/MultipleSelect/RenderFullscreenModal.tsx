@@ -40,6 +40,7 @@ export const RenderFullscreenModal = ({
   confirmButtonText,
   confirmButtonTextStyle,
   confirmButtonStyle,
+  colorScheme,
   onSelectedItemsChange,
 }: IRenderFullscreenModal) => {
   const handlePressItem = (data: { [key: string]: any }) => {
@@ -67,7 +68,13 @@ export const RenderFullscreenModal = ({
   return (
     <Modal animationType="slide" transparent visible={open}>
       <SafeAreaView style={[FullScreenModalSyle.container, modalContainer]}>
-        <View style={[FullScreenModalSyle.header, headerStyle]}>
+        <View
+          style={[
+            FullScreenModalSyle.header,
+            { backgroundColor: colorScheme.bg2 },
+            headerStyle,
+          ]}
+        >
           <View style={FullScreenModalSyle.headerLeft}>
             {headerIcon ? (
               headerIcon
@@ -80,36 +87,71 @@ export const RenderFullscreenModal = ({
               >
                 <Image
                   source={require('../assets/left.png')}
-                  style={[FullScreenModalSyle.leftImage, leftStyle]}
+                  style={[
+                    FullScreenModalSyle.leftImage,
+                    { tintColor: colorScheme.text },
+                    leftStyle,
+                  ]}
                 />
               </TouchableOpacity>
             )}
             {topText !== undefined && (
-              <Text style={FullScreenModalSyle.topText}>{topText}</Text>
+              <Text
+                style={[
+                  FullScreenModalSyle.topText,
+                  { color: colorScheme.text },
+                ]}
+              >
+                {topText}
+              </Text>
             )}
           </View>
           {handleValue.length > 0 && (
             <Text
               onPress={() => setHandleValue([])}
-              style={[FullScreenModalSyle.clear, clearStyle]}
+              style={[
+                FullScreenModalSyle.clear,
+                { color: colorScheme.primary },
+                clearStyle,
+              ]}
             >
               {clearText}
             </Text>
           )}
         </View>
-        <View style={[FullScreenModalSyle.modalContent, modalContentStyle]}>
+        <View
+          style={[
+            FullScreenModalSyle.modalContent,
+            { backgroundColor: colorScheme.bg3 },
+            modalContentStyle,
+          ]}
+        >
           <View style={FullScreenModalSyle.contentTop}>
             {searchable && (
-              <View style={FullScreenModalSyle.contentSearch}>
+              <View
+                style={[
+                  FullScreenModalSyle.contentSearch,
+                  { backgroundColor: colorScheme.input },
+                ]}
+              >
                 <Image
                   source={require('../assets/search.png')}
-                  style={FullScreenModalSyle.searchImage}
+                  style={[
+                    FullScreenModalSyle.searchImage,
+                    { tintColor: colorScheme.tertiary },
+                  ]}
                 />
                 <TextInput
                   placeholder="Search"
                   value={search}
                   onChangeText={(text) => setSearch(text)}
-                  style={FullScreenModalSyle.input}
+                  placeholderTextColor={colorScheme.text}
+                  style={[
+                    FullScreenModalSyle.input,
+                    {
+                      color: colorScheme.text,
+                    },
+                  ]}
                 />
                 <TouchableOpacity
                   onPress={() => setSearch('')}
@@ -117,7 +159,10 @@ export const RenderFullscreenModal = ({
                 >
                   <Image
                     source={require('../assets/clear.png')}
-                    style={FullScreenModalSyle.deleteImage}
+                    style={[
+                      FullScreenModalSyle.deleteImage,
+                      { tintColor: colorScheme.tertiary },
+                    ]}
                   />
                 </TouchableOpacity>
               </View>
@@ -135,6 +180,7 @@ export const RenderFullscreenModal = ({
                   parent={parent}
                   categorySelectable={categorySelectable}
                   isItParent={item.parent ? false : true}
+                  colorScheme={colorScheme}
                   value={handleValue}
                   pressItem={(badge) => handlePressItem(badge)}
                 />
@@ -146,11 +192,16 @@ export const RenderFullscreenModal = ({
             onPress={() => {
               handlePressButton();
             }}
-            style={[FullScreenModalSyle.confirmButton, confirmButtonStyle]}
+            style={[
+              FullScreenModalSyle.confirmButton,
+              { backgroundColor: colorScheme.primary },
+              confirmButtonStyle,
+            ]}
           >
             <Text
               style={[
                 FullScreenModalSyle.confirmButtonText,
+                { color: colorScheme.text },
                 confirmButtonTextStyle,
               ]}
             >
