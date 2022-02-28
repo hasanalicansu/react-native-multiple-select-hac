@@ -1,6 +1,6 @@
 {
   "name": "react-native-multiple-select-hac",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "react native multiple select",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
