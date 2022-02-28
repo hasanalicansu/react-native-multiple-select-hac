@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, TouchableOpacity, ScrollView, View, Image } from 'react-native';
 import React from 'react';
 import { HorizontalStyle } from './Style';
 import type { IHorizontal } from './Interface';
@@ -29,22 +29,33 @@ export const HorizontalContent = ({
       ]}
     >
       {value !== undefined && value.length > 0 ? (
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {value.map((itemKey, index) => (
-            <BadgeItem
-              key={index}
-              itemKey={itemKey}
-              pressItem={pressItem}
-              findItem={findItem}
-              displayedObject={displayedObject}
-              badgeStyle={{}}
-              badgeTextStyle={badgeTextStyle}
-              crossStyle={crossStyle}
-              badgeIcon={badgeIcon}
-              colorScheme={colorScheme}
+        <View style={HorizontalStyle.horizontalContent}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {value.map((itemKey, index) => (
+              <BadgeItem
+                key={index}
+                itemKey={itemKey}
+                pressItem={pressItem}
+                findItem={findItem}
+                displayedObject={displayedObject}
+                badgeStyle={{}}
+                badgeTextStyle={badgeTextStyle}
+                crossStyle={crossStyle}
+                badgeIcon={badgeIcon}
+                colorScheme={colorScheme}
+              />
+            ))}
+          </ScrollView>
+          <TouchableOpacity
+            onPress={() => setOpen(!open)}
+            style={HorizontalStyle.upContainer}
+          >
+            <Image
+              style={[HorizontalStyle.upIcon, { tintColor: colorScheme.text }]}
+              source={require('../assets/up.png')}
             />
-          ))}
-        </ScrollView>
+          </TouchableOpacity>
+        </View>
       ) : (
         <Text
           style={[

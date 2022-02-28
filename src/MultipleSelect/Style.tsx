@@ -14,9 +14,14 @@ export const HorizontalStyle = StyleSheet.create({
     paddingHorizontal: 7,
   },
 
+  horizontalContent: { flexDirection: 'row', alignItems: 'center' },
+
   placeholder: {
     fontSize: 13,
   },
+
+  upContainer: { marginLeft: 5 },
+  upIcon: { height: 16, width: 16 },
 });
 
 export const VerticalStyle = StyleSheet.create({

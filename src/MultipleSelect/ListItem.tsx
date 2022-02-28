@@ -38,7 +38,7 @@ export const ListItem = ({
     </Text>
     {value?.includes(data[uniqueKey]) && (
       <Image
-        style={[ListItemStyle.checkImage, {tintColor: colorScheme.text}]}
+        style={[ListItemStyle.checkImage, { tintColor: colorScheme.text }]}
         source={require('../assets/check.png')}
       />
     )}

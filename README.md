@@ -2,7 +2,7 @@
 
 Content type (Vertical and horizontal)         |  Modal Light |  Modal Dark
 :-------------------------:|:-------------------------:|:-------------------------:
-![content !](https://user-images.githubusercontent.com/63130177/155967651-f9f24a60-0dd6-49b0-8b77-935b9f896c60.png)|![modal Light](https://user-images.githubusercontent.com/63130177/155967204-584ebdad-ade7-4bf4-bec5-26891a28a8b7.png)| ![modal dark](https://user-images.githubusercontent.com/63130177/155966892-fe117d11-aaf4-46b2-bdb1-816b5dad42e1.png)
+![content !](https://user-images.githubusercontent.com/63130177/155973840-bc71dc2e-33db-42a8-b999-782cc0fe2f6e.png)|![modal Light](https://user-images.githubusercontent.com/63130177/155967204-584ebdad-ade7-4bf4-bec5-26891a28a8b7.png)| ![modal dark](https://user-images.githubusercontent.com/63130177/155966892-fe117d11-aaf4-46b2-bdb1-816b5dad42e1.png)
 
 
 # react-native-multiple-select-hac
